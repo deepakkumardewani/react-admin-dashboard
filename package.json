@@ -2,11 +2,14 @@
   "name": "dashboard",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://deepakkumardewani.github.io/react-admin-dashboard",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@syncfusion/ej2": "^20.4.53",
@@ -29,6 +32,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.2.0",
     "autoprefixer": "^10.4.7",
+    "gh-pages": "^5.0.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
     "vite": "^4"
