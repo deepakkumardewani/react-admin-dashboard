@@ -1,12 +1,14 @@
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
+
 import { SiShopware } from "react-icons/si";
 import { Link, NavLink } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import { links } from "../data/dummy";
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   const handleCloseSidebar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -14,7 +16,7 @@ const Sidebar = () => {
     }
   };
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-gray-500 dark:text-white  text-md m-2 hover:bg-light-gray";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white dark:text-white  text-md m-2 hover:bg-light-gray";
 
   const normalLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
@@ -55,6 +57,9 @@ const Sidebar = () => {
                     onClick={() => {
                       handleCloseSidebar();
                     }}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
                     }
